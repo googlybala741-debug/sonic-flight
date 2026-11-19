@@ -111,8 +111,8 @@ public class SonicFlightClient implements ClientModInitializer {
         Vec3 back = v.normalize().scale(-1);
         int n = 2 + (int) (power * 8);
         for (int i = 0; i < n; i++) {
-            double side = (mc.level.random.nextDouble() - 0.5) * (1.5 + closeness * 2.0);
-            double behind = mc.level.random.nextDouble() * (2.0 + power * 3.0);
+double side = (p.getRandom().nextDouble() - 0.5) * (1.5 + closeness * 2.0);
+double behind = p.getRandom().nextDouble() * (2.0 + power * 3.0);
             double px = x + back.x * behind - back.z * side;
             double pz = z + back.z * behind + back.x * side;
             mc.level.addParticle(ParticleTypes.SPLASH, px, surfaceY, pz, 0, 0.1 + closeness * 0.2, 0);
