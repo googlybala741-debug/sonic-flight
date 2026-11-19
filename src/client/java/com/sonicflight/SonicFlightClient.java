@@ -57,7 +57,7 @@ public class SonicFlightClient implements ClientModInitializer {
 
     private static void onTick(Minecraft mc) {
         while (SETTINGS_KEY.consumeClick()) {
-            mc.setScreen(new SonicFlightSettingsScreen());
+            mc.setScreenAndShow(new SonicFlightSettingsScreen());
         }
 
         LocalPlayer p = mc.player;
