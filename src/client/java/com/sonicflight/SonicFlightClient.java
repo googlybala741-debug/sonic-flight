@@ -15,8 +15,6 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.util.Mth;
 import net.minecraft.world.phys.Vec3;
-import org.lwjgl.glfw.GLFW;
-
 public class SonicFlightClient implements ClientModInitializer {
     public static final String MOD_ID = "sonicflight";
 
@@ -47,7 +45,7 @@ public class SonicFlightClient implements ClientModInitializer {
         CATEGORY = KeyMapping.Category.register(Identifier.fromNamespaceAndPath(MOD_ID, "main"));
         // Shows up in Options > Controls > Key Binds, so the key can be changed there.
         SETTINGS_KEY = KeyMappingHelper.registerKeyMapping(new KeyMapping(
-                "key.sonicflight.settings", InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_O, CATEGORY));
+                "key.sonicflight.settings", InputConstants.KEY_O, CATEGORY));
 
         ClientTickEvents.END_CLIENT_TICK.register(SonicFlightClient::onTick);
     }
@@ -59,7 +57,7 @@ public class SonicFlightClient implements ClientModInitializer {
 
     private static void onTick(Minecraft mc) {
         while (SETTINGS_KEY.consumeClick()) {
-            if (mc.screen == null) mc.setScreen(new SonicFlightSettingsScreen());
+            mc.setScreen(new SonicFlightSettingsScreen());
         }
 
         LocalPlayer p = mc.player;
